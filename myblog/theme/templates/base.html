@@ -1,0 +1,30 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>{% block title %}My Blog{% endblock %}</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="{% static 'css/dist/styles.css' %}" rel="stylesheet">
+</head>
+<body class="bg-gray-100 text-black font-sans">
+
+  <header class="bg-blue-700 shadow mb-8">
+    <div class="max-w-4xl mx-auto flex justify-between items-center px-4 py-5">
+      <h1 class="text-2xl font-bold text-white">
+        <a href="{% url 'post_list' %}" class="hover:underline">alex-blyth.com</a>
+      </h1>
+    </div>
+  </header>
+  
+
+  <main class="max-w-4xl mx-auto px-4">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="text-center text-sm text-gray-500 mt-16 py-6">
+    &copy; {{ now|date:"Y" }} My Blog.
+  </footer>
+
+</body>
+</html>
